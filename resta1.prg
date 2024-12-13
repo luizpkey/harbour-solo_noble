@@ -57,8 +57,8 @@ function main()
                 nColuna--
             endif
         elseif nKey == K_RETURN
-            if cCor == "R/W,N/GR*,,,N/W*" 
-                cCor := "G/W,N/GR*,,,N/W*" 
+            if cCor == "R/W,N/GR*,,,N/W*"
+                cCor := "G/W,N/GR*,,,N/W*"
                 aPecaSelecionada := { nLinha, nColuna }
             else
                 PossoComerPeca( aTabuleiro, nLinha, nColuna, aPecaSelecionada )
@@ -71,15 +71,15 @@ return 0
 
 ***************************************************************************************************
 static function PosicaoValida( nLinha, nColuna )
-return ( nLinha > 3 .and. nLinha < 7 ) .or.;
-       ( nColuna > 3 .and. nColuna < 7 )
+return ( nLinha > 2 .and. nLinha < 6 ) .or.;
+       ( nColuna > 2 .and. nColuna < 6 )
 
 ***************************************************************************************************
 static function IniciaTabuleiro()
     local aTabuleiro, aLinha, nLinha, nColuna
-    aTabuleiro := Array(9)
+    aTabuleiro := Array( 7 )
     for nLinha := 1 To Len( aTabuleiro )
-        aLinha := Array( 9 )
+        aLinha := Array( 7 )
         aTabuleiro[ nLinha ] := aLinha
         for nColuna := 1 To Len( aLinha )
             if PosicaoValida( nLinha, nColuna )
@@ -89,7 +89,7 @@ static function IniciaTabuleiro()
             endif
        next
    next
-   aTabuleiro[ 5, 5 ] := VAZIO
+   aTabuleiro[ 4, 4 ] := VAZIO
 return aTabuleiro
 
 ***************************************************************************************************
